@@ -40,3 +40,21 @@ test('cancellation requires exact job ID, cancelled state, and absent report',as
  }
 });
 test('already absent cancellation is successful without a JSON body',async()=>{const runner=new JobRunner({fetcher:async()=>({ok:false,status:404,json:()=>{throw new Error('Must not read absent response');}})});await runner.cancelRemote('gone');});
+test('default browser fetch keeps the global receiver for starts, polls, and cancel',async()=>{
+ const original=globalThis.fetch,updates=[],receivers=[];
+ globalThis.fetch=async function(url){
+  receivers.push(this);
+  if(this!==globalThis)throw new TypeError('Illegal invocation: fetch requires its global receiver');
+  if(url==='api/jobs')return response({id:'browser-job'});
+  if(url.endsWith('/cancel'))return response({id:'browser-job',status:'cancelled'});
+  return response({id:'browser-job',status:'done',result:inventory()});
+ };
+ try {
+  const runner=new JobRunner({onUpdate:data=>updates.push(data)});
+  await runner.start({mode:'inspect'});
+  assert.deepEqual(updates.map(data=>data.status),['running','done']);
+  await runner.cancel();
+  assert.equal(receivers.length,3);
+  assert.ok(receivers.every(receiver=>receiver===globalThis));
+ } finally {globalThis.fetch=original;}
+});

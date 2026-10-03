@@ -41,7 +41,7 @@ async function setup(options={}) {
   await page.goto(base);
   return {page,context,errors,requests,cancelled,posts,options};
 }
-async function inspect(s){await s.page.locator('#demo-button').click();await expect(s.page.locator('#track-section')).toBeVisible();}
+async function inspect(s){await s.page.locator('#demo-button').click();try{await expect(s.page.locator('#track-section')).toBeVisible();}catch(error){await s.page.screenshot({path:path.join(artifacts,'mock-inspect-failure.png'),fullPage:true}).catch(()=>{});error.message+=`\nUI status: ${await s.page.locator('#status-text').textContent()}\nUI error: ${await s.page.locator('#error-region').textContent()}\nPage errors: ${JSON.stringify(s.errors)}\nAPI requests: ${JSON.stringify(s.requests)}`;throw error;}}
 async function select(s){await s.page.locator('#before-track').selectOption('1');await s.page.locator('#after-track').selectOption('1');await s.page.locator('#same-track').check();}
 async function compare(s){await inspect(s);await select(s);await s.page.locator('#compare-button').click();await expect(s.page.locator('#report-section')).toBeVisible();}
 async function close(s){assert.deepEqual(s.errors,[]);await s.context.close();}

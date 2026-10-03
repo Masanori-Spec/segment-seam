@@ -82,7 +82,7 @@ export function abortableDelay(ms, signal) {
 // Start responses remain readable so cancellation can always target the server ID.
 // Polls abort immediately. A new POST waits until retired starts have been cancelled.
 export class JobRunner {
-  constructor({fetcher = fetch, onUpdate = () => {}, delay = abortableDelay, pollMs = 350} = {}) {
+  constructor({fetcher = (...args) => globalThis.fetch(...args), onUpdate = () => {}, delay = abortableDelay, pollMs = 350} = {}) {
     this.fetcher = fetcher; this.onUpdate = onUpdate; this.delay = delay; this.pollMs = pollMs;
     this.generation = 0; this.current = null; this.barrier = Promise.resolve();
   }
