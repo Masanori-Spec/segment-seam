@@ -105,7 +105,7 @@ python scripts/benchmark.py --out benchmark-ci.json
 python scripts/package_source.py --out ../segment-seam-output
 ```
 
-Node 22 and pinned Playwright are development-only dependencies. Browser tests launch Chromium with its sandbox enabled and capture desktop/mobile screenshots. They are not claimed to pass until the exact revision's CI evidence is inspected. [Verification status](docs/VERIFICATION.md) distinguishes passed checks from pending browser checks.
+Node 22 and pinned Playwright are development-only dependencies. [Verified code commit aa336738](https://github.com/Masanori-Spec/segment-seam/commit/aa33673895dcddbe97ae43be9c46b799c9acea97) passed all three jobs in [CI run 37127171844](https://github.com/Masanori-Spec/segment-seam/actions/runs/37127171844): 85 Python tests on both 3.12/3.13, 22 Node tests, 12 sandboxed mock-browser scenarios and the real-worker browser workflow. Actual desktop/mobile evidence screenshots and the report ZIP were inspected. The browser-fetch receiver regression found in the first CI run was fixed and tested. See [verification details and remaining limits](docs/VERIFICATION.md).
 
 CI currently uses Ubuntu 22.04 to preserve sandboxed browser execution. That runner is scheduled for retirement on **2027-04-17**; migrate and re-verify the sandbox on a supported runner before then. [GitHub notice](https://github.com/actions/runner-images/issues/14254)
 
