@@ -1,0 +1,44 @@
+{
+  "python": "3.12.14",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "dataset": "Synthetic equatorial points, boundaries every 100 \u2192 200 points",
+  "measurement": "In-process engine+packet, tracemalloc Python allocations only; worker overhead and total RSS excluded",
+  "results": [
+    {
+      "points": 100,
+      "input_bytes": 9850,
+      "seconds": 0.02741850099846488,
+      "tracemalloc_peak_bytes": 473188,
+      "packet_bytes": 2191,
+      "status": "complete",
+      "removed": 0
+    },
+    {
+      "points": 1000,
+      "input_bytes": 96471,
+      "seconds": 0.2606850470037898,
+      "tracemalloc_peak_bytes": 2943429,
+      "packet_bytes": 3153,
+      "status": "complete",
+      "removed": 5
+    },
+    {
+      "points": 10000,
+      "input_bytes": 962766,
+      "seconds": 2.7322023879969493,
+      "tracemalloc_peak_bytes": 27730272,
+      "packet_bytes": 8521,
+      "status": "complete",
+      "removed": 50
+    },
+    {
+      "points": 20000,
+      "input_bytes": 1925316,
+      "seconds": 5.754749328996695,
+      "tracemalloc_peak_bytes": 56249234,
+      "packet_bytes": 14272,
+      "status": "complete",
+      "removed": 100
+    }
+  ]
+}

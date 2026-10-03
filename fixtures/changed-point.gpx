@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="Segment Seam synthetic demo">
+  <metadata><desc>Synthetic equatorial coordinates for software tests. Not a recorded route.</desc></metadata>
+  <trk><name>Synthetic recorder → converter</name>
+    <trkseg>
+      <trkpt lat="0.000" lon="0.000"><ele>10</ele><time>2026-01-01T00:00:00Z</time></trkpt>
+      <trkpt lat="0.000" lon="0.001"><ele>11</ele><time>2026-01-01T00:01:00Z</time></trkpt>
+      <trkpt lat="0.000" lon="0.0201"><ele>12</ele><time>2026-01-01T00:02:00Z</time></trkpt>
+      <trkpt lat="0.000" lon="0.021"><ele>13</ele><time>2026-01-01T00:03:00Z</time></trkpt>
+    </trkseg>
+    <trkseg>
+      <trkpt lat="0.000" lon="0.040"><ele>14</ele><time>2026-01-01T00:04:00Z</time></trkpt>
+      <trkpt lat="0.000" lon="0.041"><ele>15</ele><time>2026-01-01T00:05:00Z</time></trkpt>
+    </trkseg>
+    <trkseg>
+      <trkpt lat="0.000" lon="0.042"><ele>16</ele><time>2026-01-01T00:06:00Z</time></trkpt>
+      <trkpt lat="0.000" lon="0.043"><ele>17</ele><time>2026-01-01T00:07:00Z</time></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

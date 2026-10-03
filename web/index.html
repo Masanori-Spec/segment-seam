@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#173f3e">
+  <title>Segment Seam · GPX boundary review</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#workspace" data-i18n="skip">Skip to workbench</a>
+<header class="topbar">
+  <a class="brand" href="./" aria-label="Segment Seam home"><svg viewBox="0 0 38 26" aria-hidden="true"><path d="M2 20h12M24 6h12M14 20L24 6"/><circle cx="14" cy="20" r="3"/><circle cx="24" cy="6" r="3"/></svg><span>segment<span class="brand-light">seam</span></span></a>
+  <div class="header-actions"><span class="local-badge"><i aria-hidden="true"></i><span data-i18n="local">LOCAL WORKBENCH</span></span><div class="language" role="group" aria-label="Language / 言語"><button type="button" id="lang-en" lang="en" aria-pressed="true">EN</button><button type="button" id="lang-ja" lang="ja" aria-pressed="false">日本語</button></div></div>
+</header>
+<main id="workspace" tabindex="-1">
+  <section class="intro" aria-labelledby="intro-title">
+    <div class="intro-copy"><p class="eyebrow" data-i18n="eyebrow">THE GPX BOUNDARY EVIDENCE WORKBENCH</p><h1 id="intro-title"><span data-i18n="heroFirst">Same points.</span><br><em data-i18n="heroSecond">Different connections.</em></h1><p class="intro-description" data-i18n="intro">A track can keep every point and still gain a connecting edge. See exactly which segment boundaries changed between two GPX files.</p><div class="intro-tags"><span data-i18n="tagLocal">Local processing</span><span data-i18n="tagExact">Exact point witnesses</span><span data-i18n="tagNoMap">No map requests</span></div></div>
+    <div class="boundary-illustration" aria-hidden="true"><div class="illustration-head"><span data-i18n="diagramTitle">A BOUNDARY, REMOVED</span><span>02 → 03</span></div><div class="diagram-row"><span data-i18n="before">Before</span><div class="node-line"><i></i><b></b><i class="node-outline"></i><b class="gap"></b><i class="node-outline"></i><b></b><i></i></div></div><div class="diagram-row"><span data-i18n="after">After</span><div class="node-line"><i></i><b></b><i></i><b class="new-edge"></b><i></i><b></b><i></i></div></div><div class="diagram-legend"><i></i><span data-i18n="diagramLegend">A newly connected edge</span></div><p data-i18n="diagramFoot">Schematic only. Not a geographic map.</p></div>
+  </section>
+  <aside class="scope-note"><span class="note-symbol" aria-hidden="true">↔</span><div><strong data-i18n="scopeLead">One logical track. An unchanged point sequence.</strong><p data-i18n="scopeBody">Choose one track from each file and confirm they represent the same logical track. This review checks segment boundaries only, not full GPX equivalence or navigation safety.</p></div></aside>
+  <section class="panel inputs" aria-labelledby="input-title">
+    <div class="section-heading"><div><p class="eyebrow" data-i18n="stepOne">01 / INPUTS</p><h2 id="input-title" data-i18n="inputTitle">Bring both versions</h2></div><button id="demo-button" class="button button-quiet" type="button" data-i18n="demo">Try a synthetic example ↗</button></div>
+    <div class="file-grid">
+      <div class="file-card" id="before-drop"><div class="file-heading"><span class="edition">A</span><div><h3 data-i18n="beforeFile">Before GPX</h3><p data-i18n="beforeHint">Your original segmentation</p></div></div><label class="upload-control" for="before-file"><span class="upload-icon" aria-hidden="true">↥</span><strong id="before-name" data-i18n="chooseGPX">Choose a GPX file</strong><span id="before-detail" data-i18n="fileHint">or drop it here · max 4 MiB</span><input id="before-file" type="file" accept=".gpx,application/gpx+xml" aria-describedby="before-detail before-error"></label><p id="before-error" class="field-error" role="alert" hidden></p></div>
+      <button id="swap-button" class="swap-button" type="button" aria-label="Swap before and after files" disabled>⇄</button>
+      <div class="file-card" id="after-drop"><div class="file-heading"><span class="edition edition-after">B</span><div><h3 data-i18n="afterFile">After GPX</h3><p data-i18n="afterHint">The version you want to check</p></div></div><label class="upload-control" for="after-file"><span class="upload-icon" aria-hidden="true">↥</span><strong id="after-name" data-i18n="chooseGPX">Choose a GPX file</strong><span id="after-detail" data-i18n="fileHint">or drop it here · max 4 MiB</span><input id="after-file" type="file" accept=".gpx,application/gpx+xml" aria-describedby="after-detail after-error"></label><p id="after-error" class="field-error" role="alert" hidden></p></div>
+    </div>
+    <div class="input-actions"><p class="limits" data-i18n="limits">4 MiB per file · 20,000 points per file<br>Processed by a cancellable local worker</p><button id="inspect-button" class="button button-primary" type="button" disabled data-i18n="inspect">Inspect tracks →</button></div>
+    <section class="track-section" id="track-section" aria-labelledby="track-title" hidden><div class="section-heading"><div><p class="eyebrow" data-i18n="stepTwo">02 / EXPLICIT TRACK PAIR</p><h2 id="track-title" data-i18n="trackTitle">Choose what belongs together</h2></div><span class="inspected-badge" data-i18n="inspected">Inputs inspected</span></div><div class="track-grid"><div><label for="before-track" data-i18n="beforeTrack">Before track · 1-based index</label><select id="before-track"></select><p id="before-inventory" class="inventory-note"></p></div><div><label for="after-track" data-i18n="afterTrack">After track · 1-based index</label><select id="after-track"></select><p id="after-inventory" class="inventory-note"></p></div></div><label class="confirmation"><input id="same-track" type="checkbox"><span data-i18n="confirm">I confirm these are the same logical track in the before and after files.</span></label><div class="compare-actions"><p class="muted" data-i18n="trackScope">Other tracks, routes, waypoints, and document metadata are outside this review.</p><button id="compare-button" class="button button-primary" type="button" disabled data-i18n="compare">Review segment seams →</button></div></section>
+    <div id="status-region" class="status-region" role="status" aria-live="polite" aria-atomic="true"><span id="status-icon" aria-hidden="true">○</span><span id="status-text"></span><button id="cancel-button" type="button" class="text-button" hidden data-i18n="cancel">Cancel</button></div><div id="progress-wrap" class="progress-wrap" hidden><progress id="job-progress" max="100" aria-label="Worker progress"></progress></div><p id="error-region" class="error-region" role="alert" hidden></p>
+  </section>
+  <section id="report-section" class="report-section" aria-labelledby="report-title" hidden><div class="section-heading report-heading"><div><p class="eyebrow" data-i18n="stepThree">03 / SCOPED EVIDENCE</p><h2 id="report-title"></h2><p id="report-subtitle" class="muted"></p></div><a id="download-link" class="button button-primary" data-i18n="download">Download evidence ZIP ↓</a></div><div id="report-body"></div></section>
+  <section id="empty-state" class="empty-state"><div class="small-seam" aria-hidden="true">● ── ● · · ● ── ●</div><h2 data-i18n="emptyTitle">The space between points matters.</h2><p data-i18n="emptyText">Inspect your files, select a track pair, then review the boundary evidence here.</p></section>
+  <footer><div><strong>segment seam</strong><span data-i18n="footerSub">A narrow question. Inspectable evidence.</span></div><p data-i18n="footer">Distance: spherical horizontal Haversine, not ellipsoidal or elevation-aware. Raw times are displayed as supplied, never interpreted as travel duration.</p><button id="restart-button" class="text-button" type="button" data-i18n="restart">Clear & restart</button></footer>
+</main>
+</body>
+</html>

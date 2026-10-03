@@ -1,0 +1,268 @@
+{
+  "inventory": {
+    "kind": "inventory",
+    "before": {
+      "name": "before.gpx",
+      "sha256": "9db694453c681328c4d9876f655a550201ea6fa182603026d03291a9e2b79b81",
+      "bytes": 1136,
+      "tracks": [
+        {
+          "index": 1,
+          "name": "Synthetic recorder → converter",
+          "points": 8,
+          "segments": 3,
+          "empty_segments": 0
+        }
+      ],
+      "waypoints": 0,
+      "routes": 0
+    },
+    "after": {
+      "name": "after.gpx",
+      "sha256": "429ad255e879ba033225196233e7bf1cbd34396b158b89f1b7fe8879f21de18d",
+      "bytes": 1136,
+      "tracks": [
+        {
+          "index": 1,
+          "name": "Synthetic recorder → converter",
+          "points": 8,
+          "segments": 3,
+          "empty_segments": 0
+        }
+      ],
+      "waypoints": 0,
+      "routes": 0
+    },
+    "limits": {
+      "max_bytes": 4194304,
+      "max_points": 20000
+    }
+  },
+  "report": {
+    "kind": "comparison",
+    "schema": "segment-seam/1",
+    "status": "complete",
+    "verdict": "boundaries_changed",
+    "reasons": [],
+    "scope": [
+      "Only the explicitly selected before/after tracks are compared.",
+      "Point order and normalized XML point content must remain unchanged; no near matching.",
+      "Only segment boundaries and horizontal spherical edge distances are reviewed.",
+      "Other tracks, waypoints, routes, and track/segment/file metadata are not compared.",
+      "No conclusion about full GPX equivalence, recording truth, navigation, or route safety."
+    ],
+    "before": {
+      "name": "before.gpx",
+      "sha256": "9db694453c681328c4d9876f655a550201ea6fa182603026d03291a9e2b79b81",
+      "bytes": 1136,
+      "track": {
+        "index": 1,
+        "name": "Synthetic recorder → converter",
+        "points": 8,
+        "segments": 3,
+        "empty_segments": 0
+      }
+    },
+    "after": {
+      "name": "after.gpx",
+      "sha256": "429ad255e879ba033225196233e7bf1cbd34396b158b89f1b7fe8879f21de18d",
+      "bytes": 1136,
+      "track": {
+        "index": 1,
+        "name": "Synthetic recorder → converter",
+        "points": 8,
+        "segments": 3,
+        "empty_segments": 0
+      }
+    },
+    "method": {
+      "name": "spherical-haversine",
+      "radius_m": 6371008.8,
+      "description": "Haversine central angle on a sphere with radius 6371008.8 m, using a directly computed complementary half-angle near antipodes for numerical stability. Horizontal only; not WGS84 ellipsoidal or elevation-aware. Numerical estimates, not measured travel."
+    },
+    "summary": {
+      "points": 8,
+      "removed_boundaries": 1,
+      "added_boundaries": 1,
+      "retained_boundaries": 1,
+      "before_distance_m": 555.9754011676642,
+      "after_distance_m": 2557.4868453712565,
+      "artificial_distance_m": 2112.706524437125,
+      "disconnected_distance_m": 111.19508023353302,
+      "net_distance_change_m": 2001.5114442035922
+    },
+    "seams": [
+      {
+        "left_point": 2,
+        "right_point": 3,
+        "change": "removed",
+        "distance_m": 2112.706524437125,
+        "before": {
+          "left_segment": 1,
+          "right_segment": 2
+        },
+        "after": {
+          "left_segment": 1,
+          "right_segment": 1
+        },
+        "left": {
+          "index": 2,
+          "lat": "0.000",
+          "lon": "0.001",
+          "elevation": {
+            "state": "raw",
+            "text": "11"
+          },
+          "time": {
+            "state": "raw",
+            "text": "2026-01-01T00:01:00Z"
+          }
+        },
+        "right": {
+          "index": 3,
+          "lat": "0.000",
+          "lon": "0.020",
+          "elevation": {
+            "state": "raw",
+            "text": "12"
+          },
+          "time": {
+            "state": "raw",
+            "text": "2026-01-01T00:02:00Z"
+          }
+        }
+      },
+      {
+        "left_point": 4,
+        "right_point": 5,
+        "change": "retained",
+        "distance_m": 2112.706524437125,
+        "before": {
+          "left_segment": 2,
+          "right_segment": 3
+        },
+        "after": {
+          "left_segment": 1,
+          "right_segment": 2
+        },
+        "left": {
+          "index": 4,
+          "lat": "0.000",
+          "lon": "0.021",
+          "elevation": {
+            "state": "raw",
+            "text": "13"
+          },
+          "time": {
+            "state": "raw",
+            "text": "2026-01-01T00:03:00Z"
+          }
+        },
+        "right": {
+          "index": 5,
+          "lat": "0.000",
+          "lon": "0.040",
+          "elevation": {
+            "state": "raw",
+            "text": "14"
+          },
+          "time": {
+            "state": "raw",
+            "text": "2026-01-01T00:04:00Z"
+          }
+        }
+      },
+      {
+        "left_point": 6,
+        "right_point": 7,
+        "change": "added",
+        "distance_m": 111.19508023353302,
+        "before": {
+          "left_segment": 3,
+          "right_segment": 3
+        },
+        "after": {
+          "left_segment": 2,
+          "right_segment": 3
+        },
+        "left": {
+          "index": 6,
+          "lat": "0.000",
+          "lon": "0.041",
+          "elevation": {
+            "state": "raw",
+            "text": "15"
+          },
+          "time": {
+            "state": "raw",
+            "text": "2026-01-01T00:05:00Z"
+          }
+        },
+        "right": {
+          "index": 7,
+          "lat": "0.000",
+          "lon": "0.042",
+          "elevation": {
+            "state": "raw",
+            "text": "16"
+          },
+          "time": {
+            "state": "raw",
+            "text": "2026-01-01T00:06:00Z"
+          }
+        }
+      }
+    ],
+    "witnesses_truncated": false,
+    "metadata_note": "Track, segment and file metadata, other tracks, routes and waypoints are not compared. Time and elevation are preserved raw text, not validated or used in distance. Reports contain exact selected point coordinates; keep them private."
+  },
+  "unsupported": {
+    "kind": "comparison",
+    "schema": "segment-seam/1",
+    "status": "unsupported",
+    "verdict": "not_compared",
+    "reasons": [
+      "Normalized XML point content differs at point 3; no near matching was attempted."
+    ],
+    "scope": [
+      "Only the explicitly selected before/after tracks are compared.",
+      "Point order and normalized XML point content must remain unchanged; no near matching.",
+      "Only segment boundaries and horizontal spherical edge distances are reviewed.",
+      "Other tracks, waypoints, routes, and track/segment/file metadata are not compared.",
+      "No conclusion about full GPX equivalence, recording truth, navigation, or route safety."
+    ],
+    "before": {
+      "name": "before.gpx",
+      "sha256": "9db694453c681328c4d9876f655a550201ea6fa182603026d03291a9e2b79b81",
+      "bytes": 1136,
+      "track": {
+        "index": 1,
+        "name": "Synthetic recorder → converter",
+        "points": 8,
+        "segments": 3,
+        "empty_segments": 0
+      }
+    },
+    "after": {
+      "name": "after.gpx",
+      "sha256": "4c4d93b2033f2066ea034b4257a930c5f2b4e54b21f977c49f1aa2103cdec949",
+      "bytes": 1136,
+      "track": {
+        "index": 1,
+        "name": "Synthetic recorder → converter",
+        "points": 8,
+        "segments": 3,
+        "empty_segments": 0
+      }
+    },
+    "method": {
+      "name": "spherical-haversine",
+      "radius_m": 6371008.8,
+      "description": "Haversine central angle on a sphere with radius 6371008.8 m, using a directly computed complementary half-angle near antipodes for numerical stability. Horizontal only; not WGS84 ellipsoidal or elevation-aware. Numerical estimates, not measured travel."
+    },
+    "summary": null,
+    "seams": [],
+    "witnesses_truncated": false,
+    "metadata_note": "Track, segment and file metadata, other tracks, routes and waypoints are not compared. Time and elevation are preserved raw text, not validated or used in distance. Reports contain exact selected point coordinates; keep them private."
+  }
+}
